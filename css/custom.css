@@ -1,0 +1,7 @@
+:root {
+  --base-font-family: 'MapleMonoNL';
+}
+
+button.wl-action:nth-child(3) {
+  display: none;
+}
