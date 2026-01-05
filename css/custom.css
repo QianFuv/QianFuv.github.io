@@ -1,0 +1,12 @@
+:root {
+  --base-font-family: 'Maple Mono Normal NL CN';
+}
+
+pre,
+code {
+  font-family: 'Maple Mono Normal NL CN' !important;
+}
+
+.code-lang {
+  font-family: 'Maple Mono Normal NL CN' !important;
+}
