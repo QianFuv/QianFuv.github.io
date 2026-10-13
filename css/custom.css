@@ -1,0 +1,12 @@
+:root {
+  --base-font-family: 'JetBrainsLxgwNerdMono';
+}
+
+pre,
+code {
+  font-family: 'JetBrainsLxgwNerdMono' !important;
+}
+
+.code-lang {
+  font-family: 'JetBrainsLxgwNerdMono' !important;
+}

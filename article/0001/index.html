@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="浅风">
+    
+    <title>
+        
+            谈 Python 环境配置 |
+        
+        浅风的部落格
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.sa.net/2024/03/23/7FWPLVKiYQTlzyt.webp">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+        
+            
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+            
+                
+<link rel="stylesheet" href="/font/JetBrainsLxgwNerdMono-Regular/result.css">
+
+            
+        
+    
+    <script>
+        (function () {
+            let theme = localStorage.getItem('KEEP-THEME-STATUS');
+            let classname = "";
+            if (!theme || (JSON.parse(theme).isAutoTheme)){
+                classname = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark-mode" : "light-mode";
+            }
+            else{
+                classname = JSON.parse(theme).isDark ? "dark-mode" : "light-mode";
+            }
+            document.documentElement.classList.add(classname);
+        })();
+    </script>
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"blog.qianfuv.fun","root":"/","language":"zh-CN"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"浅风的部落格","author":"浅风","avatar":"https://cdn.sa.net/2024/03/23/CbOeMtc8HjqwrPx.webp","logo":"https://cdn.sa.net/2024/03/23/7FWPLVKiYQTlzyt.webp","favicon":"https://cdn.sa.net/2024/03/23/7FWPLVKiYQTlzyt.webp"},"menu":{"home":"/","archives":"/archives","categories":"/categories"},"first_screen":{"enable":true,"background_img":"/images/bg2.svg","background_img_dark":"/images/bg2.svg","description":"浅浅如风 盈盈如月","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/QianFuv","weixin":"img | https://cdn.sa.net/2024/04/02/cEoJfmFinYUzCGl.jpg","qq":"img | https://cdn.sa.net/2024/04/02/YRIfHjNwlZ1GaEM.jpg","weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"qianfuv@qq.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":false},"home":{"announcement":null,"category":true,"tag":false,"post_datetime":"updated","post_datetime_format":"YYYY年MM月DD日"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY年MM月DD日","copyright_info":{"custom_license":"CC BY-NC-ND 4.0","custom_link":"https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans"},"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":true,"field":"post","content":true,"format":"striptags"},"comment":{"enable":false,"use":null,"valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":null},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":null,"custom":{"enable":false,"url":null}},"pjax":{"enable":true},"footer":{"since":2021,"word_count":false,"site_deploy":{"enable":false,"provider":"vercel","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":[null,"/css/custom.css","/font/JetBrainsLxgwNerdMono-Regular/result.css"],"js":[null]},"root":"","search_db_path":"keep-search.json","source_data":{},"version":"4.3.0"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="浅风的部落格" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.sa.net/2024/03/23/7FWPLVKiYQTlzyt.webp">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               浅风的部落格
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                归档
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                分类
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            归档
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            分类
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        谈 Python 环境配置
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="https://cdn.sa.net/2024/03/23/CbOeMtc8HjqwrPx.webp">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">浅风</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026年01月04日</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Mon Sep 21 2026 00:00:00 GMT+0000">2026年09月21日</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Python/">Python</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>4.3k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>16 分钟</span>
+            </span>
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>时隔三年重新开始写博客。这三年经历了读研、出国和考博，也曾多次想把过去没有写完的内容继续整理下来，但最终一直没有真正开始。索性将之前的文章清理掉，从头重新记录。</p>
+<p>写这篇文章最直接的原因，是想给组里的师兄、师姐、师弟和师妹整理一份相对完整的 Python 环境配置教程，同时也介绍一些常见机器学习项目中比较实用的环境管理方法。</p>
+<p>对于科研工作而言，环境配置本身并不是研究的核心，却经常消耗大量时间。Python 版本不一致、依赖冲突、虚拟环境混乱、深度学习框架安装失败，这些问题对于刚接触 Python 的同学尤其常见。</p>
+<p>因此，本文希望尽可能提供一套简单、统一且具有较好可复现性的 Python 项目管理方式。按照本文的流程进行配置后，大多数常规科研项目都可以使用相似的方法完成环境初始化与依赖管理，尽量避免让“配置环境”成为科研工作的额外负担。</p>
+<h2 id="0-pip-是什么，uv-又是什么？"><a href="#0-pip-是什么，uv-又是什么？" class="headerlink" title="0 - pip 是什么，uv 又是什么？"></a>0 - pip 是什么，uv 又是什么？</h2><p>Python 自带大量标准库，用于提供文件操作、系统接口、JSON 解析等基础功能，例如 <code>io</code>、<code>sys</code> 和 <code>json</code>。但在机器学习、数据分析和科学计算中，我们往往还需要使用大量第三方库，例如 NumPy、Pandas、scikit-learn 和 PyTorch 等。</p>
+<p>在大多数 Python 安装环境中，<code>pip</code> 是最常见的第三方包管理工具。通过一条简单的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install &lt;package&gt;</span><br></pre></td></tr></table></figure>
+
+<p>即可从 PyPI（Python Package Index）下载并安装所需的第三方库。</p>
+<p>这种方式非常方便，但在实际科研项目中也存在一些问题。</p>
+<p>首先，如果直接在全局 Python 环境中执行 <code>pip install</code>，不同项目所需的依赖会逐渐混杂在同一个环境中。当两个项目依赖同一个库的不同版本时，就可能出现版本冲突。此时往往需要反复执行安装、卸载或降级操作，不仅增加环境维护成本，也会降低项目的可复现性。</p>
+<p>当然，一个自然的解决方案是：为每个项目建立独立的虚拟环境。</p>
+<p>但新的问题随之出现。例如，在多个机器学习项目中分别创建虚拟环境后，PyTorch 等体积较大的依赖可能会被重复下载和存储。随着项目数量增加，环境初始化时间和磁盘占用都会逐渐成为问题。</p>
+<p>如果能够将已经下载过的包统一缓存，并在不同项目之间复用，就可以显著减少重复下载和安装开销。</p>
+<p>这正是 uv 的优势之一。</p>
+<p>uv 的官方定位是：</p>
+<blockquote>
+<p>An extremely fast Python package and project manager, written in Rust.</p>
+</blockquote>
+<p>即：<strong>一个使用 Rust 编写的高性能 Python 包与项目管理工具。</strong></p>
+<p>官方提供的性能测试如下：</p>
+<p><img   src="https://cdn.sa.net/2026/01/04/oCK6AwHzRSFBp9y.png" ></p>
+<p>与传统的 Python 工具链相比，uv 将过去由多个工具分别承担的功能进行了较大程度的整合。例如，它可以承担许多原本由 pip、pipx、Poetry、virtualenv 和 pyenv 等工具完成的工作，包括：</p>
+<ul>
+<li>Python 版本管理；</li>
+<li>虚拟环境创建；</li>
+<li>项目初始化；</li>
+<li>依赖安装与解析；</li>
+<li>依赖版本锁定；</li>
+<li>包缓存与复用；</li>
+<li>Python 脚本和项目命令运行。</li>
+</ul>
+<p>与此同时，uv 使用 Rust 实现，并针对依赖解析、下载和缓存机制进行了优化。在许多典型场景下，其执行速度可以显著快于传统 Python 包管理工具。</p>
+<p>对于科研项目而言，它最大的价值并不仅仅是“快”，而是能够提供一套相对统一的 Python 项目管理方式。</p>
+<h2 id="1-安装-uv"><a href="#1-安装-uv" class="headerlink" title="1 - 安装 uv"></a>1 - 安装 uv</h2><p>uv 可以通过 pip 安装，也可以直接安装而不依赖现有 Python 环境。</p>
+<p>这里更推荐直接安装。</p>
+<p>原因很简单：如果 uv 本身依赖某个已有 Python 环境，那么一旦该 Python 环境出现问题，uv 的可用性也可能受到影响。直接安装可以减少这种额外依赖，使其作为独立的环境管理工具运行。</p>
+<p>在 Windows 下，可以使用官方安装脚本。以 PowerShell 运行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powershell <span class="literal">-ExecutionPolicy</span> ByPass <span class="literal">-c</span> <span class="string">&quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果安装过程中出现网络相关错误，可以尝试更换网络环境后重新执行。</p>
+<p>除此之外，我个人更推荐使用 Scoop 安装。这样不仅安装过程较为简单，后续的软件更新与管理也更加方便。</p>
+<p>首先安装 Scoop：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br><span class="line"><span class="built_in">Invoke-RestMethod</span> <span class="literal">-Uri</span> https://get.scoop.sh | <span class="built_in">Invoke-Expression</span></span><br></pre></td></tr></table></figure>
+
+<p>然后安装 uv：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install main/uv</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，新开一个命令行窗口，运行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv self version</span><br></pre></td></tr></table></figure>
+
+<p>如果能够正常输出版本信息，即说明 uv 已成功安装。</p>
+<p>前面提到，uv 会使用缓存机制减少不同项目之间的重复下载和存储。对于经常运行大量机器学习项目的电脑，可以考虑单独规划缓存目录。</p>
+<p>例如，如果大多数代码和项目都位于 D 盘，可以在 D 盘创建：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:/UvCache</span><br></pre></td></tr></table></figure>
+
+<p>作为 uv 的缓存目录。</p>
+<p>在项目目录与缓存目录位于同一磁盘的情况下，通常更有利于减少跨磁盘的数据复制开销。</p>
+<p>例如可以指定：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv cache <span class="built_in">dir</span> --cache-<span class="built_in">dir</span> D:/UvCache</span><br></pre></td></tr></table></figure>
+
+<p>随后可以通过：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv cache <span class="built_in">dir</span></span><br></pre></td></tr></table></figure>
+
+<p>查看当前使用的缓存目录。</p>
+<h2 id="2-初始化项目"><a href="#2-初始化项目" class="headerlink" title="2 - 初始化项目"></a>2 - 初始化项目</h2><p>完成安装后，就可以开始使用 uv 管理 Python 项目。</p>
+<p>对于已有项目，建议首先检查项目根目录下是否存在 <code>.venv</code>、<code>.env</code> 或其他由 IDE、Conda、virtualenv 等工具创建的旧虚拟环境。</p>
+<p>如果准备完全切换到 uv 管理，并且确认这些旧环境中没有需要保留的内容，可以将其删除后重新初始化，避免不同环境管理方式相互干扰。</p>
+<h3 id="2-1-已存在-pyproject-toml"><a href="#2-1-已存在-pyproject-toml" class="headerlink" title="2.1 已存在 pyproject.toml"></a>2.1 已存在 <code>pyproject.toml</code></h3><p>如果项目根目录已经存在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyproject.toml</span><br></pre></td></tr></table></figure>
+
+<p>通常只需要在项目根目录执行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv sync --all-extras</span><br></pre></td></tr></table></figure>
+
+<p>uv 会根据项目配置和锁文件完成 Python 环境及项目依赖的同步。</p>
+<p>对于配置规范的项目而言，通常不需要再手动逐个安装依赖。</p>
+<p>当然，这一过程的前提是项目自身的 <code>pyproject.toml</code> 和依赖声明是正确的。如果项目配置本身存在问题，则需要进一步检查依赖版本或项目配置，这部分不属于本文讨论重点。</p>
+<h3 id="2-2-只有-requirements-txt"><a href="#2-2-只有-requirements-txt" class="headerlink" title="2.2 只有 requirements.txt"></a>2.2 只有 <code>requirements.txt</code></h3><p>如果项目没有 <code>pyproject.toml</code>，但存在传统的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>可以首先执行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv init</span><br></pre></td></tr></table></figure>
+
+<p>初始化项目。</p>
+<p>如果已经明确知道项目所需的 Python 版本，也可以直接指定：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv init --python &lt;Python版本号&gt;</span><br></pre></td></tr></table></figure>
+
+<p>随后将原有 <code>requirements.txt</code> 中的依赖加入项目：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>至此，一个传统的 <code>requirements.txt</code> 项目就可以逐步迁移到基于 <code>pyproject.toml</code> 和 <code>uv.lock</code> 的依赖管理方式。</p>
+<h3 id="2-3-什么都没有"><a href="#2-3-什么都没有" class="headerlink" title="2.3 什么都没有"></a>2.3 什么都没有</h3><p>还有一种情况：某些代码仓库既没有 <code>pyproject.toml</code>，也没有 <code>requirements.txt</code>。</p>
+<p>这类项目的环境复现通常会更加困难。</p>
+<p>可以首先阅读项目的 <code>README.md</code>，检查作者是否说明了 Python 版本和依赖要求；随后查看主要 Python 文件顶部的 <code>import</code> 语句，大致判断项目依赖了哪些第三方库。</p>
+<p>确定 Python 版本后，可以运行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv init --python &lt;Python版本号&gt;</span><br></pre></td></tr></table></figure>
+
+<p>随后添加所需依赖：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add &lt;lib1&gt; &lt;lib2&gt; &lt;lib3&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用 <code>==</code>、<code>&gt;=</code>、<code>&lt;=</code> 等方式约束依赖版本，例如：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add &quot;numpy&gt;=<span class="number">2</span>.<span class="number">0</span>&quot; &quot;pandas&lt;<span class="number">3</span>.<span class="number">0</span>&quot;</span><br></pre></td></tr></table></figure>
+
+<p>对于缺少任何环境说明的项目，依赖恢复本质上属于“环境考古”。如果项目年代较久，还可能涉及已经弃用的库、旧版 Python 或相互冲突的依赖，因此需要根据实际报错逐步处理。</p>
+<h2 id="3-依赖管理和运行代码"><a href="#3-依赖管理和运行代码" class="headerlink" title="3 - 依赖管理和运行代码"></a>3 - 依赖管理和运行代码</h2><p>前面多次提到了 <code>pyproject.toml</code>。那么，它究竟是什么？</p>
+<p>简单来说，<code>pyproject.toml</code> 是现代 Python 项目中非常重要的统一配置文件。</p>
+<p>过去，一个 Python 项目中可能同时存在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setup.py</span><br><span class="line">setup.cfg</span><br><span class="line">requirements.txt</span><br><span class="line">MANIFEST.in</span><br></pre></td></tr></table></figure>
+
+<p>等多个配置文件，不同工具分别读取不同配置，项目结构容易变得较为分散。</p>
+<p><code>pyproject.toml</code> 的引入，使 Python 项目能够通过一个标准化入口描述构建系统、项目元数据、依赖、开发工具配置等信息。配合 uv 后，还可以进一步统一 Python 版本、依赖解析与虚拟环境管理。</p>
+<p>下面是一份典型的 <code>pyproject.toml</code>：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[project]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;02&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"><span class="attr">description</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="attr">readme</span> = <span class="string">&quot;README.md&quot;</span></span><br><span class="line"><span class="attr">requires-python</span> = <span class="string">&quot;&gt;=3.13&quot;</span></span><br><span class="line"><span class="attr">dependencies</span> = [</span><br><span class="line">    <span class="string">&quot;imbalanced-learn&gt;=0.14.1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;lightgbm&gt;=4.6.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;ngboost&gt;=0.5.8&quot;</span>,</span><br><span class="line">    <span class="string">&quot;numpy&gt;=2.4.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;openpyxl&gt;=3.1.5&quot;</span>,</span><br><span class="line">    <span class="string">&quot;pandas&gt;=2.3.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;scikit-learn&gt;=1.8.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;xgboost&gt;=3.1.2&quot;</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="section">[project.scripts]</span></span><br><span class="line"><span class="attr">pre_process</span> = <span class="string">&quot;scripts.s0_pre_process.pre_process:main&quot;</span></span><br><span class="line"><span class="attr">feature_select</span> = <span class="string">&quot;scripts.s1_feature_select.feature_select:main&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[project.optional-dependencies]</span></span><br><span class="line"><span class="attr">dev</span> = [</span><br><span class="line">    <span class="string">&quot;mypy&gt;=1.18.2&quot;</span>,</span><br><span class="line">    <span class="string">&quot;ruff&gt;=0.14.6&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="section">[tool.setuptools]</span></span><br><span class="line"><span class="attr">packages</span> = [<span class="string">&quot;scripts&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="section">[build-system]</span></span><br><span class="line"><span class="attr">requires</span> = [<span class="string">&quot;setuptools&gt;=45&quot;</span>, <span class="string">&quot;wheel&quot;</span>]</span><br><span class="line"><span class="attr">build-backend</span> = <span class="string">&quot;setuptools.build_meta&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[tool.uv]</span></span><br><span class="line"><span class="attr">required-environments</span> = [</span><br><span class="line">    <span class="string">&quot;sys_platform == &#x27;win32&#x27;&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="section">[tool.ruff]</span></span><br><span class="line"><span class="attr">exclude</span> = [<span class="string">&quot;docs&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="section">[tool.ruff.lint]</span></span><br><span class="line"><span class="attr">select</span> = [<span class="string">&quot;E&quot;</span>,<span class="string">&quot;F&quot;</span>,<span class="string">&quot;UP&quot;</span>,<span class="string">&quot;B&quot;</span>,<span class="string">&quot;SIM&quot;</span>,<span class="string">&quot;I&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="section">[tool.mypy]</span></span><br><span class="line"><span class="attr">disable_error_code</span> = [<span class="string">&quot;import-untyped&quot;</span>]</span><br><span class="line"><span class="attr">exclude</span> = [<span class="string">&quot;docs&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>对于一般科研项目，我比较推荐采用类似的组织形式。</p>
+<p>其中：</p>
+<ul>
+<li><code>[project]</code> 用于描述项目基本信息及核心依赖；</li>
+<li><code>[project.scripts]</code> 可以为常用程序入口定义命令别名；</li>
+<li><code>[project.optional-dependencies]</code> 可以存放开发、测试等非核心依赖；</li>
+<li><code>[build-system]</code> 用于配置项目构建方式；</li>
+<li><code>[tool.uv]</code> 用于定义 uv 相关配置；</li>
+<li><code>[tool.ruff]</code> 和 <code>[tool.mypy]</code> 分别用于配置 Ruff 和 MyPy。</li>
+</ul>
+<p>这里额外加入了 Ruff 和 MyPy 两个开发工具。</p>
+<p>Ruff 可以用于代码检查、导入排序和格式化，MyPy 可以用于静态类型检查。对于需要长期维护、多人协作或者准备公开代码的科研项目，这类工具能够显著提升代码规范性。</p>
+<p>常用命令包括：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run ruff check &lt;<span class="built_in">dir</span>/code&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run ruff <span class="built_in">format</span> &lt;<span class="built_in">dir</span>/code&gt;</span><br></pre></td></tr></table></figure>
+
+<p>以及：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run mypy &lt;<span class="built_in">dir</span>/code&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果需要查看完整参数，可以使用：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run ruff --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<p>或：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run mypy --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<p>一套规范的配置如果再配合合理的目录结构，可以进一步提升科研项目的可维护性。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">example/</span><br><span class="line">├── datas/                                   # 数据目录</span><br><span class="line">│   ├── data/                                # 处理后的数据</span><br><span class="line">│   ├── output/                              # 输出结果</span><br><span class="line">│   └── raw_data/                            # 原始数据</span><br><span class="line">├── docs/                                    # 文档目录</span><br><span class="line">├── scripts/                                 # 脚本目录</span><br><span class="line">│   ├── __init__.py</span><br><span class="line">│   ├── s0_pre_process/                      # 预处理模块</span><br><span class="line">│   │   └── pre_process.py</span><br><span class="line">│   └── s1_feature_select/                   # 特征选择模块</span><br><span class="line">│       └── feature_select.py</span><br><span class="line">├── README.md                                # 项目说明</span><br><span class="line">├── .gitignore                               # Git 忽略规则</span><br><span class="line">├── pyproject.toml                           # Python 项目配置</span><br><span class="line">└── uv.lock                                  # 依赖锁定文件</span><br></pre></td></tr></table></figure>
+
+<p>在日常使用中，uv 的依赖管理主要可以归纳为三个命令：</p>
+<ul>
+<li><code>uv add &lt;package&gt;</code>：添加依赖；</li>
+<li><code>uv remove &lt;package&gt;</code>：删除依赖；</li>
+<li><code>uv sync --all-extras</code>：根据项目配置同步环境。</li>
+</ul>
+<p>执行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add &lt;package&gt;</span><br></pre></td></tr></table></figure>
+
+<p>时，如果没有主动指定版本约束，uv 会根据当前 Python 环境和依赖关系解析合适的版本，并将依赖信息写入 <code>pyproject.toml</code>，同时更新 <code>uv.lock</code>。</p>
+<p><code>uv.lock</code> 的作用尤其重要。</p>
+<p><code>pyproject.toml</code> 更多描述的是“允许使用哪些版本”，而 <code>uv.lock</code> 会记录经过解析后实际使用的具体依赖版本。将它提交到 Git 后，其他人在重新执行 <code>uv sync</code> 时，就更容易获得与原项目一致的依赖环境。</p>
+<p>这对于科研代码复现非常重要。</p>
+<p>运行程序时，同样可以通过 uv：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run &lt;code&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run python main.py</span><br></pre></td></tr></table></figure>
+
+<p>如果已经在 <code>[project.scripts]</code> 中定义了命令：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[project.scripts]</span></span><br><span class="line"><span class="attr">pre_process</span> = <span class="string">&quot;scripts.s0_pre_process.pre_process:main&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>则可以直接执行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run pre_process</span><br></pre></td></tr></table></figure>
+
+<p>这样可以避免记忆复杂的脚本路径，也能使项目的标准运行入口更加清晰。</p>
+<h2 id="4-与-IDE-集成"><a href="#4-与-IDE-集成" class="headerlink" title="4 - 与 IDE 集成"></a>4 - 与 IDE 集成</h2><p>接下来讨论如何在 IDE 中使用 uv。</p>
+<p>实际上，这一步通常不需要复杂配置。</p>
+<p>uv 默认会在项目根目录创建：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.venv</span><br></pre></td></tr></table></figure>
+
+<p>作为当前项目的虚拟环境。</p>
+<p>目前常用的 Python IDE 和编辑器，例如 PyCharm 和 VS Code，都可以识别项目目录中的虚拟环境。因此，在使用 uv 初始化并同步项目环境后，直接通过 IDE 打开项目目录即可。</p>
+<p>如果 IDE 没有自动选择正确的解释器，只需要在 Python 解释器设置中手动选择项目根目录中的 <code>.venv</code>。</p>
+<p>Windows 下通常为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.venv\Scripts\python.exe</span><br></pre></td></tr></table></figure>
+
+<p>Linux&#x2F;macOS 下通常为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.venv/bin/python</span><br></pre></td></tr></table></figure>
+
+<p>即可。</p>
+<p>至于 IDE 的选择，主要还是取决于个人使用习惯和项目复杂度。</p>
+<p>PyCharm 提供了较为完整的 Python 开发能力，在大型工程中优势明显，但相对而言资源占用也更高。对于组内大多数数据分析、机器学习实验和科研脚本，我个人更倾向于使用 VS Code：启动速度快、扩展生态丰富，同时足以覆盖大多数科研开发需求。</p>
+<p>这里推荐一个 VS Code 的 Python 环境管理扩展：</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-python-envs" >Python Environments<i class="fas fa-external-link-alt"></i></a></p>
+<p>如果电脑中同时存在 uv、Conda、Poetry 等多种环境管理工具，该扩展可以帮助统一查看和切换不同 Python 环境。</p>
+<h2 id="5-PyTorch-安装"><a href="#5-PyTorch-安装" class="headerlink" title="5 - PyTorch 安装"></a>5 - PyTorch 安装</h2><p>机器学习项目中，相对容易出现环境问题的框架之一是 PyTorch。</p>
+<p>与普通 Python 库不同，PyTorch 的安装通常还涉及操作系统、硬件平台以及 CUDA 版本等因素。尤其是在使用 NVIDIA GPU 时，需要确保安装的 PyTorch 构建版本与目标 CUDA 环境相匹配。</p>
+<p>uv 支持为特定依赖配置独立的软件包索引，因此可以直接在 <code>pyproject.toml</code> 中指定 PyTorch 官方提供的对应 CUDA Wheel 源。</p>
+<p>下面以 CUDA 13.0 对应的 <code>cu130</code> 为例：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[[tool.uv.index]]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;pytorch-cu130&quot;</span></span><br><span class="line"><span class="attr">url</span> = <span class="string">&quot;https://download.pytorch.org/whl/cu130&quot;</span></span><br><span class="line"><span class="attr">explicit</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[tool.uv.sources]</span></span><br><span class="line"><span class="attr">torch</span> = [</span><br><span class="line">  &#123; index = <span class="string">&quot;pytorch-cu130&quot;</span>, marker = <span class="string">&quot;sys_platform == &#x27;linux&#x27; or sys_platform == &#x27;win32&#x27;&quot;</span> &#125;,</span><br><span class="line">]</span><br><span class="line"><span class="attr">torchvision</span> = [</span><br><span class="line">  &#123; index = <span class="string">&quot;pytorch-cu130&quot;</span>, marker = <span class="string">&quot;sys_platform == &#x27;linux&#x27; or sys_platform == &#x27;win32&#x27;&quot;</span> &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>配置完成后执行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add torch torchvision</span><br></pre></td></tr></table></figure>
+
+<p>即可将 PyTorch 和 TorchVision 加入当前项目。</p>
+<p>如果需要使用其他 CUDA 版本，则根据 PyTorch 官方提供的 Wheel 索引，将上述配置中的 <code>cu130</code> 调整为对应版本即可。</p>
+<p>采用这种方式的一个优势是：<strong>PyTorch 的来源信息直接记录在项目配置中。</strong></p>
+<p>相比于仅仅在 README 中写一句：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请安装 CUDA 版本的 PyTorch</span><br></pre></td></tr></table></figure>
+
+<p>将具体的软件源写入 <code>pyproject.toml</code> 更有利于其他人在复现项目时得到一致的运行环境，也能够减少因安装错误构建版本而导致的问题。</p>
+<h2 id="6-结语"><a href="#6-结语" class="headerlink" title="6 - 结语"></a>6 - 结语</h2><p>Python 环境配置本身并不是一个复杂的研究问题，但它往往会在实际科研过程中产生大量额外成本。</p>
+<p>传统工作流中，我们可能需要分别处理 Python 版本、虚拟环境、依赖安装、依赖锁定以及项目运行等问题。当项目数量增加后，不同工具和环境之间的差异很容易导致依赖冲突、版本不一致以及代码难以复现。</p>
+<p>uv 的价值就在于将这些原本相对分散的工作整合到一套更加统一的工作流中。</p>
+<p>从项目初始化：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv init</span><br></pre></td></tr></table></figure>
+
+<p>到添加依赖：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add &lt;package&gt;</span><br></pre></td></tr></table></figure>
+
+<p>再到同步环境：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv sync</span><br></pre></td></tr></table></figure>
+
+<p>以及运行代码：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run</span><br></pre></td></tr></table></figure>
+
+<p>大多数常见的 Python 项目管理任务都可以通过相对一致的方式完成。</p>
+<p>对于科研工作而言，我认为工具是否“先进”并不是最重要的。更重要的是，它能否降低环境维护成本，提高项目的可复现性，并让研究者将更多时间用于数据、模型、实验和论文，而不是反复处理软件环境问题。</p>
+<p>从这个角度来看，uv 提供了一套值得尝试的现代 Python 项目管理方案。</p>
+<p>刚开始使用时可能需要一定的适应过程，但一旦建立起统一的项目结构和依赖管理习惯，后续无论是自己维护代码、迁移计算设备、与组内同学协作，还是公开科研项目，都会方便很多。</p>
+<p>希望这篇教程能够帮助大家少花一些时间配置环境，多花一些时间解决真正值得研究的问题。</p>
+<p>最后，祝大家科研顺利，代码稳定，实验可复现，论文高产。</p>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                谈 Python 环境配置
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                article/0001/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    作者
+                </div>
+                <div class="content">浅风</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    发布于
+                </div>
+                <div class="content">2026-01-04 00:00</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    许可
+                </div>
+                <div class="content tooltip" data-tooltip-content="">
+                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans" target="_blank">
+                        
+                            CC BY-NC-ND 4.0
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="复制版权信息" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/article/0002/"
+                                   title="谈文献检索与追踪：LitRadar"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">谈文献检索与追踪：LitRadar</span>
+                                        <span class="post-nav-item">上一篇</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-pip-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8Cuv-%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">0 - pip 是什么，uv 又是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85-uv"><span class="nav-text">1 - 安装 uv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="nav-text">2 - 初始化项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B7%B2%E5%AD%98%E5%9C%A8-pyproject-toml"><span class="nav-text">2.1 已存在 pyproject.toml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%8F%AA%E6%9C%89-requirements-txt"><span class="nav-text">2.2 只有 requirements.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BB%80%E4%B9%88%E9%83%BD%E6%B2%A1%E6%9C%89"><span class="nav-text">2.3 什么都没有</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E5%92%8C%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="nav-text">3 - 依赖管理和运行代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%B8%8E-IDE-%E9%9B%86%E6%88%90"><span class="nav-text">4 - 与 IDE 集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-PyTorch-%E5%AE%89%E8%A3%85"><span class="nav-text">5 - PyTorch 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%BB%93%E8%AF%AD"><span class="nav-text">6 - 结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">浅风</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-pip-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8Cuv-%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">0 - pip 是什么，uv 又是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85-uv"><span class="nav-text">1 - 安装 uv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="nav-text">2 - 初始化项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B7%B2%E5%AD%98%E5%9C%A8-pyproject-toml"><span class="nav-text">2.1 已存在 pyproject.toml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%8F%AA%E6%9C%89-requirements-txt"><span class="nav-text">2.2 只有 requirements.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BB%80%E4%B9%88%E9%83%BD%E6%B2%A1%E6%9C%89"><span class="nav-text">2.3 什么都没有</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E5%92%8C%E8%BF%90%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="nav-text">3 - 依赖管理和运行代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%B8%8E-IDE-%E9%9B%86%E6%88%90"><span class="nav-text">4 - 与 IDE 集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-PyTorch-%E5%AE%89%E8%A3%85"><span class="nav-text">5 - PyTorch 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%BB%93%E8%AF%AD"><span class="nav-text">6 - 结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/js/post/copyright-info.js"></script>
+
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    <script id="pjax-script" src="/js/libs/pjax.min.js"></script>
+<script>
+  (function () {
+    const isGoogleTranslate = location.hostname.includes('.translate.goog')
+
+    if (isGoogleTranslate) {
+      document.getElementById('pjax-script')?.remove()
+      return
+    }
+
+    function initPjax () {
+      if (window.pjax) return
+
+      window.pjax = new Pjax({
+        selectors: [
+          'head title',
+          '.page-container',
+          '.pjax'
+        ],
+        history: true,
+        debug: false,
+        cacheBust: false,
+        timeout: 0,
+        analytics: false,
+        currentUrlFullReload: false,
+        scrollRestoration: false
+      })
+
+      document.addEventListener('pjax:send', onPjaxSend)
+      document.addEventListener('pjax:complete', onPjaxComplete)
+    }
+
+    function onPjaxSend () {
+      KEEP?.utils?.pjaxProgressBarStart()
+    }
+
+    function onPjaxComplete () {
+      KEEP?.utils?.pjaxProgressBarEnd()
+
+      window?.pjax?.executeScripts(
+        document.querySelectorAll('script[data-pjax], .pjax script')
+      )
+
+      KEEP?.initExecute()
+    }
+
+    // DOM Ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPjax)
+    } else {
+      initPjax()
+    }
+  })()
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>

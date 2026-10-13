@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="浅风">
+    
+    <title>
+        
+            谈文献检索与追踪：LitRadar |
+        
+        浅风的部落格
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="https://cdn.sa.net/2024/03/23/7FWPLVKiYQTlzyt.webp">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+        
+            
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+            
+                
+<link rel="stylesheet" href="/font/JetBrainsLxgwNerdMono-Regular/result.css">
+
+            
+        
+    
+    <script>
+        (function () {
+            let theme = localStorage.getItem('KEEP-THEME-STATUS');
+            let classname = "";
+            if (!theme || (JSON.parse(theme).isAutoTheme)){
+                classname = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark-mode" : "light-mode";
+            }
+            else{
+                classname = JSON.parse(theme).isDark ? "dark-mode" : "light-mode";
+            }
+            document.documentElement.classList.add(classname);
+        })();
+    </script>
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"blog.qianfuv.fun","root":"/","language":"zh-CN"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"浅风的部落格","author":"浅风","avatar":"https://cdn.sa.net/2024/03/23/CbOeMtc8HjqwrPx.webp","logo":"https://cdn.sa.net/2024/03/23/7FWPLVKiYQTlzyt.webp","favicon":"https://cdn.sa.net/2024/03/23/7FWPLVKiYQTlzyt.webp"},"menu":{"home":"/","archives":"/archives","categories":"/categories"},"first_screen":{"enable":true,"background_img":"/images/bg2.svg","background_img_dark":"/images/bg2.svg","description":"浅浅如风 盈盈如月","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/QianFuv","weixin":"img | https://cdn.sa.net/2024/04/02/cEoJfmFinYUzCGl.jpg","qq":"img | https://cdn.sa.net/2024/04/02/YRIfHjNwlZ1GaEM.jpg","weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"qianfuv@qq.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":false},"home":{"announcement":null,"category":true,"tag":false,"post_datetime":"updated","post_datetime_format":"YYYY年MM月DD日"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY年MM月DD日","copyright_info":{"custom_license":"CC BY-NC-ND 4.0","custom_link":"https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans"},"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":true,"field":"post","content":true,"format":"striptags"},"comment":{"enable":false,"use":null,"valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":null},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":null,"custom":{"enable":false,"url":null}},"pjax":{"enable":true},"footer":{"since":2021,"word_count":false,"site_deploy":{"enable":false,"provider":"vercel","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":[null,"/css/custom.css","/font/JetBrainsLxgwNerdMono-Regular/result.css"],"js":[null]},"root":"","search_db_path":"keep-search.json","source_data":{},"version":"4.3.0"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="浅风的部落格" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="https://cdn.sa.net/2024/03/23/7FWPLVKiYQTlzyt.webp">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               浅风的部落格
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                归档
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                分类
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            归档
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            分类
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        谈文献检索与追踪：LitRadar
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="https://cdn.sa.net/2024/03/23/CbOeMtc8HjqwrPx.webp">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">浅风</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026年09月21日</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Mon Sep 21 2026 00:00:00 GMT+0000">2026年09月21日</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Research/">Research</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>4.3k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>15 分钟</span>
+            </span>
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>长期做一个研究方向以后，我逐渐发现，文献检索真正耗费时间的地方并不一定是找不到论文，而是需要不断重复检索同一批内容。</p>
+<p>刚进入一个领域时，Google Scholar、Web of Science、Scopus、Semantic Scholar 和知网已经足以完成大部分工作。输入关键词、沿着引用关系寻找经典论文，再查看近期研究，通常很快就能建立起对一个领域的基本认识。但随着研究方向逐渐稳定，情况会发生变化：常看的期刊越来越固定，关注的研究主题也趋于明确，文献检索开始从大范围探索转向长期追踪。</p>
+<p>以管理学和金融领域为例，实际检索时可能只希望关注 ABS、FMS 或 UTD 中的一部分期刊，而不是每次都从整个数据库重新搜索。跨学科研究还可能同时涉及 CCF 计算机期刊、中文期刊以及不同学科分类。此时，反复配置期刊、年份、研究方向和关键词等筛选条件，本质上已经成为一种重复劳动。</p>
+<p>LitRadar 最开始就是为了处理这个问题。我希望能够先维护一套真正关心的期刊集合，然后围绕这套集合完成后续的检索、更新和追踪。随着项目继续开发，需求也逐渐扩展到了 AI 文献筛选、征稿追踪、引用导出以及 API 和 MCP 接入，最终形成了现在的 LitRadar。</p>
+<p>项目地址：<a class="link"   target="_blank" rel="noopener" href="https://github.com/QianFuv/LitRadar" >QianFuv&#x2F;LitRadar<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="0-LitRadar-是什么？"><a href="#0-LitRadar-是什么？" class="headerlink" title="0 - LitRadar 是什么？"></a>0 - LitRadar 是什么？</h2><p>LitRadar 是一个面向学术期刊的自托管文献检索与订阅平台。</p>
+<p>和一般的在线学术搜索工具相比，LitRadar 更强调<strong>确定研究范围以后，对这一范围进行长期索引和持续追踪</strong>。它并不试图重新建立一个覆盖所有学术内容的大型数据库，而是允许用户先确定自己真正关心的期刊，再围绕这些期刊建立本地文献索引。</p>
+<p>目前 LitRadar 的期刊元数据可以记录 UTD、ABS、FMS、FMSCN、CCF、学科领域、ISSN、eISSN、期刊名称以及别名等信息。因此，可以根据评级体系建立期刊集合，也可以直接维护自己长期关注的几十到几百本期刊。</p>
+<p>在文章数据方面，英文期刊主要使用 Crossref、OpenAlex 和 Semantic Scholar 获取和补充元数据，中文期刊则提供 CNKI 数据流程。不同来源的数据会经过统一处理后存入 SQLite，并使用 FTS5 建立全文检索索引。</p>
+<p>因此，LitRadar 的基本工作流程可以概括为：</p>
+<p><strong>期刊目录 → 多数据源索引 → SQLite 本地数据库 → 文献检索 → 增量更新 → 自动追踪。</strong></p>
+<p>这种设计和简单调用第三方搜索 API 有一个比较明显的区别：文章进入 LitRadar 后会形成自己的本地索引，因此后面的检索、收藏、追踪和 AI 筛选都可以围绕同一套数据继续进行。</p>
+<h2 id="1-期刊集合与文献索引"><a href="#1-期刊集合与文献索引" class="headerlink" title="1 - 期刊集合与文献索引"></a>1 - 期刊集合与文献索引</h2><p>LitRadar 最核心的设计之一，是将期刊集合本身作为检索范围，而不仅仅是在搜索结果上增加一个期刊过滤条件。</p>
+<p>传统数据库通常先从全部文章中搜索关键词，再通过期刊、年份和学科等条件不断缩小范围。对于临时检索来说这种方式非常方便，但如果研究者长期关注固定的一组期刊，每次重新设置相同的条件就没有太大必要。</p>
+<p>因此，LitRadar 会先维护期刊目录。目前项目中的目录可以同时记录多种期刊评级，例如 ABS、FMS、FMSCN 和 UTD，并且支持 CCF 计算机期刊。这样可以直接按照已有的学术评价体系组织研究范围。</p>
+<p>例如，一个管理学研究项目可以主要关注 ABS 3 星及以上期刊，同时补充 FMS 中的部分目标期刊；涉及机器学习方法时，又可以加入 CCF 目录中的相关期刊。对于不希望依赖评级体系的研究，也可以直接按照 ISSN 或期刊名称建立自定义集合。</p>
+<p>期刊集合确定以后，LitRadar 会从对应的数据源获取文章信息。不同来源对于文章标题、作者、DOI、发布日期等字段的覆盖并不完全一致，因此 LitRadar 会先进行规范化处理，再写入本地数据库。</p>
+<p>底层存储目前采用 SQLite。选择 SQLite 的一个重要原因是部署简单，并且对于 LitRadar 这种以读取、搜索和周期性更新为主的工作负载已经足够。文章搜索则基于 SQLite FTS5，因此不需要额外维护 Elasticsearch、OpenSearch 等独立搜索服务。</p>
+<p>对于自托管科研工具而言，我比较倾向于这种设计：能够使用一个数据库文件解决的问题，就没有必要为了架构复杂度额外引入新的基础设施。</p>
+<h2 id="2-文献检索"><a href="#2-文献检索" class="headerlink" title="2 - 文献检索"></a>2 - 文献检索</h2><p>完成索引以后，LitRadar 就可以直接在本地数据库中进行文献检索。</p>
+<p>除了普通的关键词查询之外，搜索条件还可以结合期刊、学科、年份以及不同期刊评级使用。例如，在同一个查询中可以限定 ABS、FMS 或 UTD 等级，再进一步指定发表年份和领域。</p>
+<p>因此，LitRadar 更适合固定研究范围下的重复检索。假设一个研究项目长期关注金融欺诈、表格数据和对抗鲁棒性，那么可以先固定期刊集合，以后所有关键词检索都在这个范围内完成，而不是每次重新从整个学术数据库开始搜索。</p>
+<p>搜索底层使用 FTS5。普通模式下，LitRadar 会尽量把用户输入作为直接的文本查询处理，避免特殊字符意外改变查询逻辑；对于有更复杂需求的用户，也可以使用高级 FTS5 查询语法。</p>
+<p>除了正文搜索，数据库还保留 DOI、PMID、期刊、年份、学科领域以及期刊评级等结构化字段。这些字段可以与全文搜索组合，因此整个检索过程并不是单纯依靠关键词匹配。</p>
+<p>本地索引还有一个比较实际的优势，就是检索和上游数据源解耦。Crossref、OpenAlex 和 Semantic Scholar 负责提供元数据，但用户每次搜索时并不需要再次向这些服务发送请求。对于已经完成索引的数据，查询完全由本地 SQLite 完成。</p>
+<p>这对于长期运行的科研服务来说也更加稳定。</p>
+<h2 id="3-增量更新与文献追踪"><a href="#3-增量更新与文献追踪" class="headerlink" title="3 - 增量更新与文献追踪"></a>3 - 增量更新与文献追踪</h2><p>如果 LitRadar 只做到本地文献搜索，其实还没有解决最开始的问题。</p>
+<p>真正麻烦的是，同一个研究方向需要被持续关注。研究者今天搜索了一次，一个星期以后仍然需要知道有没有新文章发表。如果继续依靠人工重新运行同样的搜索，那么本地索引只是把搜索速度提高了，并没有改变工作方式。</p>
+<p>因此，LitRadar 对已经建立的期刊索引提供增量更新。</p>
+<p>系统会记录已经成功完成的索引位置，后续更新时从远端最新内容开始扫描，并判断哪些文章是新增内容。相比每一次都重新扫描完整历史数据，这种方式可以显著降低日常更新成本。</p>
+<p>对于需要检查历史回填或者重新核对完整数据的情况，也保留全量扫描模式。日常追踪和历史校验因此可以分开处理：前者重点关注新增内容，后者负责完整性检查。</p>
+<p>增量更新产生的新文章还可以进入 LitRadar 的后续追踪流程。也就是说，文献检索不再完全依赖研究者主动发起，而是逐渐变成由系统持续维护研究范围中的变化。</p>
+<p>我认为这也是 LitRadar 和普通搜索工具之间比较重要的区别。对于科研而言，一次搜索解决的是当前问题，而长期追踪解决的是信息更新问题。很多新论文并不是找不到，而是发表以后没有被及时发现。</p>
+<h2 id="4-AI-文献推荐"><a href="#4-AI-文献推荐" class="headerlink" title="4 - AI 文献推荐"></a>4 - AI 文献推荐</h2><p>自动更新以后又会出现另一个问题：如果关注的期刊很多，那么新增文章本身也可能形成新的信息负担。</p>
+<p>因此 LitRadar 在增量更新之后增加了 AI 筛选。</p>
+<p>用户可以配置关键词和研究方向，并接入兼容 OpenAI API 的模型服务。当新文章进入追踪流程以后，系统可以根据这些偏好进一步判断文章是否与当前研究相关。</p>
+<p>关键词主要用于提供比较明确的主题信号，而研究方向则可以描述更加完整的研究背景。例如，同样包含 <code>fraud</code> 的论文可能涉及支付欺诈、保险欺诈、财务报告欺诈或者网络安全，单纯依靠关键词很难进一步区分。加入研究方向以后，模型可以结合更完整的上下文进行初步筛选。</p>
+<p>筛选后的结果可以写入 LitRadar 中指定的追踪收藏夹，也可以通过 PushPlus 等方式进行外部通知。</p>
+<p>这里 AI 的定位比较明确：它负责减少需要人工检查的候选文章数量，而不是替代文献阅读。论文是否具有研究价值、实验设计是否合理以及与当前工作究竟有什么关系，仍然需要研究者自己判断。</p>
+<p>从工作流上来看，LitRadar 负责完成的是<strong>新增检测和初步筛选</strong>，而不是研究结论。</p>
+<h2 id="5-Call-for-Papers-追踪"><a href="#5-Call-for-Papers-追踪" class="headerlink" title="5 - Call for Papers 追踪"></a>5 - Call for Papers 追踪</h2><p>在长期维护期刊目录以后，我发现除了论文更新之外，还有一类信息非常适合一起追踪，那就是 Call for Papers。</p>
+<p>很多期刊会发布 Special Issue、Special Section 和专题征稿，但这些信息通常分散在出版商页面、期刊官网、学会网站或者 PDF 中。少量期刊可以手动查看，但如果长期关注几十甚至几百本期刊，依靠人工逐个检查很难稳定执行。</p>
+<p>因此 LitRadar 后来加入了 CFP Tracking。</p>
+<p>CFP 追踪会围绕已有期刊目录获取对应的征稿来源，并对页面内容进行规范化处理。系统目前可以整理期刊、征稿主题、原始来源、开放状态、投稿截止日期以及相关要求等信息。</p>
+<p>这样，原本的期刊追踪就从单纯关注已经发表的文章扩展到了两个方向：一方面查看这些期刊最近发表了什么，另一方面查看这些期刊接下来准备征集什么。</p>
+<p>从科研使用角度来看，这两类信息其实具有一定互补性。新发表论文反映当前正在进行的研究，而 Special Issue 和 CFP 则能够提供期刊未来一段时间关注方向的参考。</p>
+<p>因此，我现在更倾向于把 LitRadar 理解为一个围绕学术期刊构建的信息追踪平台，而不仅仅是一个论文搜索工具。</p>
+<h2 id="6-收藏、引用与外部接入"><a href="#6-收藏、引用与外部接入" class="headerlink" title="6 - 收藏、引用与外部接入"></a>6 - 收藏、引用与外部接入</h2><p>文献被搜索出来以后，通常还需要继续进入后续科研流程，因此 LitRadar 提供了收藏夹和引用导出功能。</p>
+<p>用户可以按照研究方向、项目或者阅读状态建立不同收藏夹，再将文章分类保存。收藏内容可以导出为 BibTeX、RIS 和 EndNote 等常见引用格式，方便继续进入 Zotero、EndNote 或 LaTeX 等工作流。</p>
+<p>这部分功能本身并不复杂，但可以减少从搜索结果到正式文献管理之间的重复操作。既然 LitRadar 已经保存了文章的 DOI、标题、作者和期刊等结构化信息，就没有必要再人工复制一次。</p>
+<p>除此之外，LitRadar 还提供 REST API、OpenAPI、Swagger UI 和 Streamable HTTP MCP。</p>
+<p>REST API 适合其他程序直接读取检索结果或者调用系统功能，OpenAPI 和 Swagger 用于描述和调试接口，而 MCP 则主要面向支持该协议的 AI 客户端和 Agent。</p>
+<p>例如，AI 工具可以直接通过 LitRadar 检索特定期刊集合中的论文，再对返回结果进行摘要、分类或者进一步分析。与直接让 AI 在互联网中搜索相比，这种方式的一个优势是搜索范围已经由 LitRadar 明确限定，并且数据结构更加稳定。</p>
+<p>因此，LitRadar 后续除了作为一个 Web 平台使用，也可以作为其他科研工具的数据入口。</p>
+<h2 id="7-部署-LitRadar"><a href="#7-部署-LitRadar" class="headerlink" title="7 - 部署 LitRadar"></a>7 - 部署 LitRadar</h2><p>LitRadar 是一个自托管项目，目前推荐使用 Docker 部署。</p>
+<p>首先创建用于存放部署密钥的目录，并生成一个 32 字节密钥：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p secrets</span><br><span class="line">openssl rand -out secrets/litradar.key 32</span><br><span class="line"><span class="built_in">chmod</span> 600 secrets/litradar.key</span><br></pre></td></tr></table></figure>
+
+<p>随后拉取已经发布的镜像并启动服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker compose pull</span><br><span class="line">docker compose up -d --remove-orphans</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，一个 LitRadar 实例会同时提供 Web、REST API、Swagger&#x2F;OpenAPI、MCP 和任务调度能力。</p>
+<p>项目后端主要使用 Rust 编写，前端使用 Next.js。构建时，Next.js 会生成静态资源，并最终由 Rust 服务统一提供。因此部署时并不需要单独长期运行一个 Node.js 前端服务。</p>
+<p>LitRadar 最终主要发布一个 <code>litradar</code> 可执行程序，其中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">litradar serve</span><br></pre></td></tr></table></figure>
+
+<p>负责启动常驻服务，而索引、通知和其他管理操作则通过对应子命令执行。</p>
+<p>这种设计主要是为了降低部署复杂度。LitRadar 本身已经涉及数据源获取、索引、认证、调度、Web、API 和 MCP，如果再要求用户额外维护多个微服务、消息队列和搜索集群，对于个人研究者和小型课题组来说反而会增加很多不必要的维护成本。</p>
+<p>因此，项目内部可以保持模块化，但运行时尽量收敛成少量组件。</p>
+<h2 id="8-LitRadar-适合什么？"><a href="#8-LitRadar-适合什么？" class="headerlink" title="8 - LitRadar 适合什么？"></a>8 - LitRadar 适合什么？</h2><p>LitRadar 并不适合替代 Google Scholar、Web of Science 或 Semantic Scholar。</p>
+<p>如果刚开始进入一个完全陌生的研究方向，需要尽可能广泛地发现论文、作者和引用关系，那么大型学术数据库仍然是更加合适的工具。它们拥有更广泛的数据覆盖，也更加适合开放式探索。</p>
+<p>LitRadar 更适合研究方向已经逐渐明确以后的阶段。当研究者已经知道自己关注哪些领域、哪些期刊以及哪些评级范围以后，就可以把这一研究空间固定下来，交给 LitRadar 长期维护。</p>
+<p>从这个角度来看，大型学术搜索平台主要解决 Discovery，也就是帮助研究者发现未知信息；LitRadar 更偏向 Monitoring，负责持续观察已经确定的研究范围。</p>
+<p>两者完全可以同时使用。前期利用大型数据库了解领域和筛选关键期刊，后期再通过 LitRadar 对这些期刊进行持续检索、更新和追踪，是我目前更倾向的使用方式。</p>
+<h2 id="9-结语"><a href="#9-结语" class="headerlink" title="9 - 结语"></a>9 - 结语</h2><p>LitRadar 最开始只是一个很简单的想法：既然科研过程中经常只关注固定的一批期刊，那么为什么每次检索都要重新从整个数据库开始？</p>
+<p>围绕这个问题，项目逐渐加入了期刊目录、本地全文索引和评级筛选；有了索引以后，又增加了增量更新；能够识别新增论文以后，进一步加入 AI 推荐；长期维护期刊以后，又顺势增加了 Call for Papers 追踪；最后再通过收藏、引用导出、REST API 和 MCP，把这些数据继续接入后面的科研工作流。</p>
+<p>因此，LitRadar 现在真正想解决的并不是如何再造一个大型学术数据库，而是如何把已有的学术数据组织成一套更适合长期科研使用的工作流。</p>
+<p>论文依然需要研究者自己阅读，研究方向也需要自己判断，但像期刊范围维护、新文章检测、初步筛选、征稿追踪以及文献信息整理等重复任务，本身非常适合交给程序自动完成。</p>
+<p>如果 LitRadar 能够让这些工作少占用一些时间，把更多精力留给真正的文献阅读、实验和研究问题本身，那么这个项目的目的也就基本达到了。</p>
+<p>GitHub：<a class="link"   target="_blank" rel="noopener" href="https://github.com/QianFuv/LitRadar" >QianFuv&#x2F;LitRadar<i class="fas fa-external-link-alt"></i></a></p>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                谈文献检索与追踪：LitRadar
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                article/0002/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    作者
+                </div>
+                <div class="content">浅风</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    发布于
+                </div>
+                <div class="content">2026-09-21 00:00</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    许可
+                </div>
+                <div class="content tooltip" data-tooltip-content="">
+                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans" target="_blank">
+                        
+                            CC BY-NC-ND 4.0
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="复制版权信息" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/article/0001/"
+                                   title="谈 Python 环境配置"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">谈 Python 环境配置</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-LitRadar-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">0 - LitRadar 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9C%9F%E5%88%8A%E9%9B%86%E5%90%88%E4%B8%8E%E6%96%87%E7%8C%AE%E7%B4%A2%E5%BC%95"><span class="nav-text">1 - 期刊集合与文献索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2"><span class="nav-text">2 - 文献检索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%A2%9E%E9%87%8F%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%96%87%E7%8C%AE%E8%BF%BD%E8%B8%AA"><span class="nav-text">3 - 增量更新与文献追踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-AI-%E6%96%87%E7%8C%AE%E6%8E%A8%E8%8D%90"><span class="nav-text">4 - AI 文献推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Call-for-Papers-%E8%BF%BD%E8%B8%AA"><span class="nav-text">5 - Call for Papers 追踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%94%B6%E8%97%8F%E3%80%81%E5%BC%95%E7%94%A8%E4%B8%8E%E5%A4%96%E9%83%A8%E6%8E%A5%E5%85%A5"><span class="nav-text">6 - 收藏、引用与外部接入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E9%83%A8%E7%BD%B2-LitRadar"><span class="nav-text">7 - 部署 LitRadar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-LitRadar-%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">8 - LitRadar 适合什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E7%BB%93%E8%AF%AD"><span class="nav-text">9 - 结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2021</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">浅风</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0-LitRadar-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">0 - LitRadar 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%9C%9F%E5%88%8A%E9%9B%86%E5%90%88%E4%B8%8E%E6%96%87%E7%8C%AE%E7%B4%A2%E5%BC%95"><span class="nav-text">1 - 期刊集合与文献索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%96%87%E7%8C%AE%E6%A3%80%E7%B4%A2"><span class="nav-text">2 - 文献检索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%A2%9E%E9%87%8F%E6%9B%B4%E6%96%B0%E4%B8%8E%E6%96%87%E7%8C%AE%E8%BF%BD%E8%B8%AA"><span class="nav-text">3 - 增量更新与文献追踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-AI-%E6%96%87%E7%8C%AE%E6%8E%A8%E8%8D%90"><span class="nav-text">4 - AI 文献推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Call-for-Papers-%E8%BF%BD%E8%B8%AA"><span class="nav-text">5 - Call for Papers 追踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%94%B6%E8%97%8F%E3%80%81%E5%BC%95%E7%94%A8%E4%B8%8E%E5%A4%96%E9%83%A8%E6%8E%A5%E5%85%A5"><span class="nav-text">6 - 收藏、引用与外部接入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E9%83%A8%E7%BD%B2-LitRadar"><span class="nav-text">7 - 部署 LitRadar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-LitRadar-%E9%80%82%E5%90%88%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">8 - LitRadar 适合什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E7%BB%93%E8%AF%AD"><span class="nav-text">9 - 结语</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+            
+<script src="/js/post/copyright-info.js"></script>
+
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    <script id="pjax-script" src="/js/libs/pjax.min.js"></script>
+<script>
+  (function () {
+    const isGoogleTranslate = location.hostname.includes('.translate.goog')
+
+    if (isGoogleTranslate) {
+      document.getElementById('pjax-script')?.remove()
+      return
+    }
+
+    function initPjax () {
+      if (window.pjax) return
+
+      window.pjax = new Pjax({
+        selectors: [
+          'head title',
+          '.page-container',
+          '.pjax'
+        ],
+        history: true,
+        debug: false,
+        cacheBust: false,
+        timeout: 0,
+        analytics: false,
+        currentUrlFullReload: false,
+        scrollRestoration: false
+      })
+
+      document.addEventListener('pjax:send', onPjaxSend)
+      document.addEventListener('pjax:complete', onPjaxComplete)
+    }
+
+    function onPjaxSend () {
+      KEEP?.utils?.pjaxProgressBarStart()
+    }
+
+    function onPjaxComplete () {
+      KEEP?.utils?.pjaxProgressBarEnd()
+
+      window?.pjax?.executeScripts(
+        document.querySelectorAll('script[data-pjax], .pjax script')
+      )
+
+      KEEP?.initExecute()
+    }
+
+    // DOM Ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPjax)
+    } else {
+      initPjax()
+    }
+  })()
+</script>
+
+
+
+
+    
+        
+    
+
+</body>
+</html>
